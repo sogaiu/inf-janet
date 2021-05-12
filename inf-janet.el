@@ -52,7 +52,19 @@ single-letter colon-keyword \(as in :a, :c, etc.)"
     (define-key map "\C-c\C-n" #'inf-janet-eval-form-and-next)
     (define-key map "\C-c\C-z" #'inf-janet-switch-to-repl)
     (define-key map "\C-c\C-l" #'inf-janet-load-file)
-    map))
+    (easy-menu-define inf-janet-minor-mode-map map
+      "Inf-Janet Minor Mode Menu"
+      '("Inf-Janet"
+        ["Eval Buffer" inf-janet-eval-buffer t]
+        ["Eval Last S-Expression" inf-janet-eval-last-sexp t]
+        ["Eval Region" inf-janet-eval-region t]
+        "--"
+        ["Load file" inf-janet-load-file t]
+        "--"
+        ["Start REPL" inf-janet t]
+        ["Switch to REPL" inf-janet-switch-to-repl t]))
+    map)
+  "Inf-Janet minor mode map.")
 
 ;;;###autoload
 (define-minor-mode inf-janet-minor-mode
