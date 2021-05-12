@@ -11,7 +11,6 @@
 ;;    (add-hook 'janet-mode-hook #'inf-janet-minor-mode)
 
 (require 'comint)
-(require 'janet-mode)
 
 
 (defgroup inf-janet nil
@@ -248,26 +247,6 @@ With prefix argument EOB-P, positions cursor at end of buffer."
   "Record last directory and file used in loading or compiling.
 This holds a cons cell of the form `(DIRECTORY . FILE)'
 describing the last `inf-janet-load-file' command.")
-
-(defcustom inf-janet-source-modes '(janet-mode)
-  "Used to determine if a buffer contains source code.
-If it's loaded into a buffer that is in one of these major modes, it's
-considered a janet source file by `inf-janet-load-file'.
-Used by this command to determine defaults."
-  :type '(repeat symbol)
-  :group 'inf-janet)
-
-;; (defun inf-janet-load-file (file-name)
-;;   "Load a source file FILE-NAME into the inferior janet process."
-;;   (interactive (comint-get-source "Load file: " inf-janet-prev-l/c-dir/file
-;;                                   inf-janet-source-modes nil)) ; nil because LOAD
-;;                                         ; doesn't need an exact name
-;;   (comint-check-source file-name) ; Check to see if buffer needs saved.
-;;   (setq inf-janet-prev-l/c-dir/file (cons (file-name-directory    file-name)
-;;                                             (file-name-nondirectory file-name)))
-;;   (comint-send-string (inf-janet-proc)
-;;                       (format inf-janet-load-command file-name))
-;;   (inf-janet-switch-to-repl t))
 
 (defun inf-janet-connected-p ()
   (not (null inf-janet-buffer)))
