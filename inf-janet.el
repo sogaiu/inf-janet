@@ -65,7 +65,7 @@ The following commands are available:
   :lighter "" :keymap inf-janet-minor-mode-map
   nil)
 
-(defcustom inf-janet-program "flisp"
+(defcustom inf-janet-program "janet"
   "The command used to start an inferior janet process in `inf-janet-mode'.
 
 Alternative you can specify a TCP connection cons pair, instead
